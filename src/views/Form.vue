@@ -9,6 +9,7 @@ const router = useRouter();
 const num = ref('');
 const isChecked = ref(false);
 const otp = ref([]);
+const error = ref(null)
 
 const pageStates = ["num", "checkbox", "opt", "done"]
 const state = ref("num")
@@ -49,7 +50,10 @@ const done = () => {
       </p>
       <v-otp-input v-model="otp" ></v-otp-input>
     </div>
-    <v-btn @click="nextState" v-if="state !== 'done'">
+    <p v-if="error" class="error">
+      {{error}}
+    </p>
+    <v-btn @click="nextState" v-if="state !== 'done'" :disabled="error">
       Next
     </v-btn>
     <div v-else>
@@ -80,4 +84,7 @@ main {
   flex-direction: column;
   gap: .5em;
 }
+ .error {
+   color:red;
+ }
 </style>
