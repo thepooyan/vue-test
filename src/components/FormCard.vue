@@ -1,7 +1,4 @@
 <script setup>
- const rules = {
-  required: value => !!value || 'Field is required',
-}
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
@@ -59,7 +56,8 @@ const done = () => {
       <p>
         Are you a programmers?
       </p>
-      <v-checkbox label="Yes i am" v-model="isChecked"></v-checkbox>
+      <v-switch label="Yes i am" color="primary" v-model="isChecked"></v-switch>
+
     </div>
     <div v-if="state === 'opt'">
       <p>
