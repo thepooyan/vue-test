@@ -6,6 +6,7 @@
 
 <style scoped>
 header {
-  background: gray;
+  background: #d6d6d6;
+  padding: 1em;
 }
 </style>

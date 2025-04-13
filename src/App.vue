@@ -4,7 +4,18 @@
 </script>
 
 <template>
-  <Header/>
-  <RouterView />
-  <Footer/>
+  <div>
+    <Header/>
+    <RouterView />
+    <Footer/>
+  </div>
 </template>
+
+<style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100dvh;
+}
+</style>
