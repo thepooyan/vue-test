@@ -5,15 +5,10 @@ const router = useRouter();
 
 const num = ref('');
 const isChecked = ref(false);
-const otpc = ref('');
+const otp = ref([]);
 
 const pageStates = ["num", "checkbox", "opt", "done"]
 const state = ref("num")
-
-const submit = () => {
-  console.log(num.value);
-  console.log(isChecked.value);
-};
 
 const nextState = () => {
   let ind = pageStates.indexOf(state.value)
@@ -22,6 +17,8 @@ const nextState = () => {
 }
 
 const done = () => {
+  let data = {number: num.value, isChecked: isChecked.value, otp: otp.value}
+  alert(`send to api: ${JSON.stringify(data)}`)
   router.push("/")
 }
 </script>
@@ -47,7 +44,7 @@ const done = () => {
       <p>
         Now put in this number: 123456
       </p>
-      <v-otp-input  ></v-otp-input>
+      <v-otp-input v-model="otp" ></v-otp-input>
     </div>
     <v-btn @click="nextState" v-if="state !== 'done'">
       Next
