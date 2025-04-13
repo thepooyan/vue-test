@@ -104,4 +104,7 @@ main {
  .error {
    color:red;
  }
+ p {
+   margin-bottom: 1em;
+ }
 </style>
