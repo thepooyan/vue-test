@@ -1,4 +1,5 @@
 <script setup>
+import Back from "../components/Back.vue"
  const rules = {
   required: value => !!value || 'Field is required',
 }
@@ -88,6 +89,7 @@ const done = () => {
       </v-btn>
     </div>
   </main>
+  <Back/>
 </template>
 
 <style scoped>
