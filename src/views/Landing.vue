@@ -10,3 +10,9 @@
       <RouterLink to="/form">Go to multi step form!</RouterLink>
   </main>
 </template>
+
+<style scoped>
+main {
+  margin: auto;
+}
+</style>
