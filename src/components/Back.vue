@@ -14,7 +14,5 @@
 <style scoped>
 button {
   width: max-content;
-  margin: auto;
-  margin-top: none;
 }
 </style>
