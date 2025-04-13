@@ -8,8 +8,8 @@ const router = useRouter();
 
 const num = ref('');
 const isChecked = ref(false);
-const otp = ref([]);
-const error = ref(null)
+const otp = ref("");
+const error = ref("Phone number cannot be empty.")
 
 const pageStates = ["num", "checkbox", "opt", "done"]
 const state = ref("num")
@@ -17,7 +17,24 @@ const state = ref("num")
 const nextState = () => {
   let ind = pageStates.indexOf(state.value)
   if (pageStates[ind+1])
+  {
     state.value = pageStates[ind+1]
+    checkError()
+  }
+}
+
+const checkError = () => {
+
+  switch (state.value) {
+    case "num":
+      if (num.value === "") error.value = "Phone number cannot be empty."
+      else error.value = null;
+      break
+    case "opt":
+      if (!otp.value) error.value = "OTP cannot be empty."
+      else error.value = null;
+      break
+  }
 }
 
 const done = () => {
@@ -36,7 +53,7 @@ const done = () => {
       <p>
         Please enter your fake phone number:
       </p>
-      <v-text-field v-model="num" label="Phone number" :rules="[rules.required]"></v-text-field>
+      <v-text-field v-model="num" label="Phone number" @keyup="checkError"></v-text-field>
     </div>
     <div v-if="state === 'checkbox'">
       <p>
@@ -48,12 +65,12 @@ const done = () => {
       <p>
         Now put in this number: 123456
       </p>
-      <v-otp-input v-model="otp" ></v-otp-input>
+      <v-otp-input v-model="otp" @keyup="checkError" ></v-otp-input>
     </div>
     <p v-if="error" class="error">
       {{error}}
     </p>
-    <v-btn @click="nextState" v-if="state !== 'done'" :disabled="error">
+    <v-btn @click="nextState" v-if="state !== 'done'" :disabled="error !== null">
       Next
     </v-btn>
     <div v-else>
