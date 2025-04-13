@@ -1,22 +1,36 @@
+<script setup>
+import { ref } from 'vue';
+
+const num = ref('');
+const isChecked = ref(false);
+const otpc = ref('');
+
+const submit = () => {
+  console.log(num.value);
+  console.log(isChecked.value);
+  console.log(optc.value);
+};
+</script>
+
 <template>
-  <main>
+  <form>
     <h1>
       Welcome to the form
     </h1>
     <p>
       Please enter your fake phone number:
     </p>
-    <v-text-field label="Phone number"></v-text-field>
-    <v-checkbox label="Checkbox"></v-checkbox>
-    <v-otp-input></v-otp-input>
-    <v-btn>
+    <v-text-field v-model="num" label="Phone number"></v-text-field>
+    <v-checkbox label="Checkbox" v-model="isChecked"></v-checkbox>
+    <v-otp-input v-model="opt"></v-otp-input>
+    <v-btn @click="submit">
       Next
     </v-btn>
-  </main>
+  </form>
 </template>
 
 <style scoped>
-main {
+form {
   border: .1em solid gray;
   width: 35em;
   margin: auto;
