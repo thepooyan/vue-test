@@ -27,7 +27,7 @@ const done = () => {
 </script>
 
 <template>
-  <form>
+  <main>
     <h1>
       Welcome to the form
     </h1>
@@ -66,11 +66,11 @@ const done = () => {
         Submit and done!
       </v-btn>
     </div>
-  </form>
+  </main>
 </template>
 
 <style scoped>
-form {
+main {
   border: .1em solid gray;
   width: 35em;
   margin: auto;
