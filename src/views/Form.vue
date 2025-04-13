@@ -1,4 +1,7 @@
 <script setup>
+ const rules = {
+  required: value => !!value || 'Field is required',
+}
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
@@ -32,7 +35,7 @@ const done = () => {
       <p>
         Please enter your fake phone number:
       </p>
-      <v-text-field v-model="num" label="Phone number"></v-text-field>
+      <v-text-field v-model="num" label="Phone number" :rules="[rules.required]"></v-text-field>
     </div>
     <div v-if="state === 'checkbox'">
       <p>
